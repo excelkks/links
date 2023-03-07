@@ -73,7 +73,7 @@ class MainWindow(QMainWindow):
         # 设置窗口标题和大小
         self.setWindowTitle("链接记录")
         # self.setGeometry(100, 100, 600, 400)
-        self.setMinimumWidth(1000)
+        self.setMinimumWidth(1800)
         self.setMinimumHeight(1200)
 
         # 创建表格视图并设置属性
@@ -207,7 +207,8 @@ class MainWindow(QMainWindow):
         if not self.table_view.selectedIndexes():
             return
         index = self.table_view.selectedIndexes()[0]
-        file_path, _ = QFileDialog.getOpenFileName(None, "Select File", "", "All Files (*)")
+        # file_path, _ = QFileDialog.getOpenFileName(None, "Select File", "", "All Files (*)")
+        file_path = QFileDialog.getExistingDirectory(None, "选择目录")
         self.model.setData(index, file_path)
         self.updateFromTable()
 
